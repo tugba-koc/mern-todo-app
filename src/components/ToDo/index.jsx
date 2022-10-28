@@ -3,6 +3,7 @@ import Form from '../Form';
 import { Container, Header } from './styles';
 import axios from '../../axios';
 import TodoList from '../TodoList';
+import Key from '../Key';
 
 const ToDo = () => {
   const [input, setInput] = useState('');
@@ -47,6 +48,7 @@ const ToDo = () => {
       <Header>List of Todos</Header>
       <Form {...props} />
       <TodoList todos={todos} fetchData={fetchData} />
+      <Key todos={todos} />
     </Container>
   );
 };
