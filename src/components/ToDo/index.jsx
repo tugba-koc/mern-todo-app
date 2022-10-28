@@ -2,19 +2,13 @@ import { useEffect, useState } from 'react';
 import Form from '../Form';
 import { Container, Header } from './styles';
 import axios from '../../axios';
+import TodoList from '../TodoList';
 
 const ToDo = () => {
   const [input, setInput] = useState('');
   const [todos, setTodos] = useState([]);
-  const addTodo = async () => {
-    console.log('hello')
-  }
-  const props = {
-    input,
-    setInput,
-    addTodo
-  };
 
+  // Load all todos
   const fetchData = async () => {
     try {
       let response = await axios.get('/todos');
@@ -27,10 +21,32 @@ const ToDo = () => {
     fetchData();
   }, []);
 
+  // create a new todo
+  const addTodo = async (e) => {
+    e.preventDefault();
+    try {
+      if (input.length === 0) return null;
+      let sendData = [{ ...todos, text: input, completed: false }];
+      await axios.post('/todos', sendData);
+      await fetchData();
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setInput('');
+    }
+  };
+
+  const props = {
+    input,
+    setInput,
+    addTodo,
+  };
+
   return (
     <Container>
       <Header>List of Todos</Header>
       <Form {...props} />
+      <TodoList todos={todos} fetchData={fetchData} />
     </Container>
   );
 };

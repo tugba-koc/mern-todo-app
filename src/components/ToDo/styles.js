@@ -5,7 +5,8 @@ export const Container = styled.div`
   background-color: white;
   padding : 20px 30px;
   border-radius : 15px;
-  margin-top: 20px
+  margin: 20px auto 0;
+  width: 50%;
 `;
 
 export const Header = styled.h2`

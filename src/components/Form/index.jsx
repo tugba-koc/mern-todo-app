@@ -2,11 +2,10 @@ import { FormContainer, Input, Button } from './styles';
 
 const Form = (props) => {
   const { input, setInput, addTodo } = props;
-  console.log(input, 'input');
   return (
-    <FormContainer>
+    <FormContainer onSubmit={(e)=>addTodo(e)}>
       <Input value={input} onChange={(e)=>setInput(e.target.value)} type='text' role='input' />
-      <Button type='submit' onSubmit={()=>addTodo()}>Add</Button>
+      <Button type='submit'>Add</Button>
     </FormContainer>
   );
 };
