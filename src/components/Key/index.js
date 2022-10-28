@@ -2,7 +2,7 @@ import React from 'react'
 import {Container, Text} from './styles'
 
 const Key = ({todos}) => {
-    let completedArr = todos ? todos?.filter((el)=>el.completed == true) : [];
+    let completedArr = todos ? todos?.filter((el)=>el.completed === true) : [];
 
   return (
     <Container>
