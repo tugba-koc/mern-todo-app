@@ -34,7 +34,7 @@ mongoose
 app.get('/todos', getTodos)
 
 // Create a new todo
-app.post('/todos/:id', createTodo)
+app.post('/todos', createTodo)
 
 // Update todo
 app.put('/todos/:id', updateTodo)
