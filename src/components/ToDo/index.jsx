@@ -6,9 +6,13 @@ import axios from '../../axios';
 const ToDo = () => {
   const [input, setInput] = useState('');
   const [todos, setTodos] = useState([]);
+  const addTodo = async () => {
+    console.log('hello')
+  }
   const props = {
     input,
     setInput,
+    addTodo
   };
 
   const fetchData = async () => {
